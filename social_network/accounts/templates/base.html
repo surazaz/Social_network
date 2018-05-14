@@ -1,0 +1,81 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+   <title>Base</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"/>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+   
+  </head>
+
+  <body>
+  <div class="container">
+  <nav id="navbar-example2" class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Social Network</a>
+  {%if user.is_authenticated%}
+<ul class="nav nav-pills">
+       <li class="nav-item">
+     <a class="nav-link" id="suraj" href="{%url 'home:home'%}">Home</a>
+    </li>
+     <li class="nav-item">
+     <a class="nav-link" href="/accounts/profile/">Profile</a>
+    </li>
+
+    <li class="nav-item">
+     <a class="nav-link" href="/accounts/profile/edit">Edit profile</a>
+    </li>
+    <li class="nav-item">
+     <a class="nav-link" href="/accounts/change-password/">Change Password</a>
+     <h1>hello</h1>
+    </li>
+     <li class="nav-item">
+     <a class="nav-link" href="/accounts/reset-password/">Reset Password</a>
+    </li>
+    <li class="nav-item">
+     <a class="nav-link" href="/accounts/logout">Logout</a>
+    </li>
+  
+
+ 
+</ul>
+  {%else%}
+    <ul class="nav nav-pills">
+       <li class="nav-item">
+     <a class="nav-link" href="{%url 'home:home'%}">Home</a>
+    </li>
+   
+      <li class="nav-item">
+     <a class="nav-link" href="/accounts/login">Login</a>
+    </li>
+    
+     <li class="nav-item">
+      <a class="nav-link" href="/accounts/register">Register</a>
+    </li>
+
+ 
+  </ul>
+  {%endif%}
+</nav>
+</div>
+<div class="container">
+  {% block body%}
+<h1>Base </h1>
+{% endblock %}
+ </div>   
+
+</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+  
+</html>
+

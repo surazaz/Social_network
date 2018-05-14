@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+
+
+{%block body%}
+
+<div class="row">
+<div class="col-sm-8">
+	<h2>Home</h2>
+
+
+	<form method="POST">
+	{%csrf_token%}
+	{{form.post}}
+	<br>
+	<button type="submit">Post</button>
+	<br>
+</form>
+
+	<br>
+	{%for post in posts%}
+	<h1>{{post.post}}</h1>
+
+	<p>Posted by {{post.user.username}} created on {{post.created}} and updated on {{post.updated}}</p>
+{%endfor%}
+</div>
+
+<div class="col-sm-4">
+	<h2>Other People</h2>
+	{%for user in users%}
+		<a href="/accounts/profile/{{user.pk}}/" ><h3>{{user.username}}</h3></a>
+	{%endfor%}
+</div>
+
+</div>
+
+
+
+{%endblock%}

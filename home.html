@@ -1,0 +1,60 @@
+{% load rest_framework %}
+<html>
+Hello
+<a href="{% url 'allform' formtype='Schools'%}">Add school</a>
+<a href="{% url 'allform' formtype='Programs'%}">Add Program</a>
+<a href="{% url 'allform' formtype='Courses'%}">Add Course</a>
+<a href="{% url 'allform' formtype='Topics'%}">Add Topic</a>
+<a href="{% url 'allform' formtype='Buildings'%}">Add Building</a>
+<a href="{% url 'allform' formtype='Rooms'%}">Add Room</a>
+<a href="{% url 'allform' formtype='CourseSchedules'%}">Add CourseSchedule </a>
+<!--{%for i in allvalues.keys%}-->
+<!--{{i}}-->
+<!--{%endfor%}-->
+<!--{%for i in allvalues.values%}-->
+<!--{{i}}-->
+<!--{%endfor%}-->
+
+<!--{%for i in allvalues.items%}-->
+<!--{{allvalues.keys}}-->
+<!--{%endfor%}-->
+{%for i in ids%}
+{{x.values}}
+{%endfor%}
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <input type="submit" value="Save">
+</form>
+<!--{%for i in ids%}-->
+<!--School details-->
+<!--<p id="{{i}}">-->
+<!--<indent>-->
+<!--<% print("mycode")%>-->
+<!--</indent>-->
+<!--</p>-->
+<!--<br>-->
+<!--{%endfor%}-->
+
+<div id="content"></div>
+
+
+<script>
+var data = JSON.parse('{{x}}');
+var value = data.key
+console.log(value);
+for (x in data) {
+    var y=x
+    console.log(x);
+    var demo = document.getElementById("content");
+    var h1 = document.createElement("p");
+    demo.appendChild(h1);
+    h1.innerHTML =document.write='<a href="{% url 'allform' formtype='Schools'%}"><h1 id='+x+'>'+data[x]["name"]+'</h1><br></a>';
+    console.log(data[x]);
+
+
+    <!--document.getElementById("demo").innerHTML = data[x]["name"];-->
+
+}
+</script>
+</html>
